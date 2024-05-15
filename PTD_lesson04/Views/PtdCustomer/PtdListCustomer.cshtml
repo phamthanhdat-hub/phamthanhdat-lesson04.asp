@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Danh sach khach hang";
+    //var list = ViewBag.list;
+    var list = Model as List<PTD_lesson04.Models.PtdCustomer>;
+    int stt = 0;
+}
+
+<h2>Danh sach khach hang</h2>
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ma so</th>
+                <th> Ho va Ten</th>
+                <th>Dia Chi</th>
+                <th>Nam sinh</th>
+                <th>Chuc Nang</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in list)
+            {
+                stt++;
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.CustomerId</td>
+                    <td>@item.FirstName @item.LastName</td>
+                    <td>@item.Address</td>
+                    <td>@item.YearOfBirth </td>
+                    <td>
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
